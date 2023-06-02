@@ -1,5 +1,5 @@
-import { CartItems } from "@/types/Cart";
-import { Product } from "@/types/Product";
+import { CartItems } from "../types/Cart";
+import { Product } from "../types/Product";
 
 export const convertCartProduct = (product: Product): CartItems => {
   const cartItems: CartItems = {

@@ -1,12 +1,10 @@
-import React from "react";
-
 const item = [1, 2, 3, 4, 5, 6];
 
 const Product = () => {
   return (
     <div className="container">
       <div className="animate-pulse grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {item.map((item, index) => (
+        {item.map((_item, index) => (
           <div
             key={index}
             className="flex justify-center flex-col items-center"
