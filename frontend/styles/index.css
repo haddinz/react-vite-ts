@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  
+}
+
+.container {
+  @apply w-11/12 mx-auto h-full
+}
+
+.image {
+  @apply max-w-[350px] h-[260px] shadow-lg rounded-xl
+}
+
+.h3 {
+  @apply font-bold text-amber-500 mb-3 text-base md:text-lg
+}
+
+.dark{
+  @apply text-gray-100 bg-gray-900 
+}
