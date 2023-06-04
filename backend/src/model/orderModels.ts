@@ -55,10 +55,13 @@ export class Order {
     public orderItems!: Item[]
     @prop()
     public shippingAddress?: ShippingAddress
+
     @prop({ ref: User})
     public user?: Ref<User>
+
     @prop ({ required: true})
     public paymentMethod!: string
+    
     @prop()
     public paymentResult?: PaymentResult
 

@@ -8,11 +8,7 @@ productRoutes.get(
   "/",
   asyncHandler(async (req, res) => {
     const products = await ProductModel.find();
-    if (products) {
-      res.json(products);
-    } else {
-      res.status(401).json({ message: "Can't Connect To Internet" });
-    }
+    res.json(products)
   })
 );
 

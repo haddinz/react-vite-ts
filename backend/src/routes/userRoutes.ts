@@ -69,7 +69,6 @@ userRoutes.put(
         isAdmin: updateProfile.isAdmin,
         token: generateToken(updateProfile),
       });
-      return;
     } else {
       res.status(401).json({ message: "Username Not Found" });
     }

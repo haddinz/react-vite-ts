@@ -3,19 +3,16 @@ import asyncHandler from "express-async-handler";
 import { ProductModel } from "../model/prodcutModel";
 import { UserModel } from "../model/userModel";
 import { Products, Users } from "../utils/data";
-import { OrderModel } from "../model/orderModels";
 
 export const seedRouter = express.Router();
 
 seedRouter.get(
   "/",
   asyncHandler(async (req: Request, res: Response) => {
-    await ProductModel.deleteMany();
+    await ProductModel.deleteMany({});
     const seedProduct = await ProductModel.insertMany(Products);
 
-    await OrderModel.deleteMany()
-
-    await UserModel.deleteMany();
+    await UserModel.deleteMany({});
     const seedUser = await UserModel.insertMany(Users);
     res.json({ seedProduct, seedUser });
   })

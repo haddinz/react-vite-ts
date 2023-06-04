@@ -36,7 +36,7 @@ function GetOrderId() {
   };
 
   // ==========================================================================
-  
+
   const [{ isPending, isRejected }, paypalDispatch] = usePayPalScriptReducer();
   const { data: paypalConfig } = GetPaypalClientID();
   useEffect(() => {
@@ -197,14 +197,17 @@ function GetOrderId() {
                         <Loading.Spin />
                       ) : isRejected ? (
                         <MessageBox>{getError(error as ApiError)}</MessageBox>
-                      ) : (
+                      ) : order?.paymentMethod === "PayPal" ? (
                         <div>
                           <PayPalButtons
                             {...paypalButtonTransactionProps}
                           ></PayPalButtons>
+                        </div>
+                      ) : (
+                        <div>
                           <Button
                             condition="on"
-                            text="Just For Dev and Build"
+                            text="Just For Stripe"
                             onClickHandler={testPayHandler}
                           />
                         </div>
