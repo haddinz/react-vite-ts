@@ -34,11 +34,11 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use("/api/keys", keyRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/seed", seedRouter);
-app.use("/api/keys", keyRoutes);
 
 app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 app.get("*", (req: Request, res: Response) =>
