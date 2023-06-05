@@ -43,7 +43,7 @@ function Payment() {
           <div className="text-xl md:text-4xl font-bold text-cyan-600 mb-10">
             Payment Method
           </div>
-          <form onSubmit={submitPaymentHandler} className="w-[450px]">
+          <form onSubmit={submitPaymentHandler} className="w-3/4 md:w-[450px]">
             <div>
               <input
                 className="bg-emerald-600 h-4 w-4 mr-3"

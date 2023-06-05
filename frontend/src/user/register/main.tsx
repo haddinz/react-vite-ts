@@ -51,20 +51,20 @@ function Signup() {
     <Layout title="Register" description="Register Page">
       <div className="container">
         <div className="flex justify-center items-center flex-col mb-10 ">
-          <h3 className="text-4xl font-bold text-cyan-700 mb-2">
+          <h3 className="text-2xl md:text-4xl font-bold text-cyan-700 mb-2">
             Welcome To Register Pages
           </h3>
-          <p className="max-w-sm text-center">
+          <p className="text-sm md:text-base max-w-sm text-center">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
             euismod, lacus ac interdum sagittis{" "}
           </p>
         </div>
         <div className="flex items-center flex-col">
-          <form className="w-[450px]" onSubmit={submitHandler}>
+          <form className="w-3/4 md:w-[450px]" onSubmit={submitHandler}>
             <div className="mb-3 flex flex-col">
               <label htmlFor="name">Name</label>
               <input
-                className="px-4 py-2 mt-2 bg-cyan-700 rounded-lg"
+                className="text-sm md:text-base px-4 py-2 mt-2 bg-cyan-700 rounded-lg"
                 type="name"
                 autoFocus
                 required
@@ -77,7 +77,7 @@ function Signup() {
             <div className="mb-3 flex flex-col">
               <label htmlFor="email">Email</label>
               <input
-                className="px-4 py-2 mt-2 bg-cyan-700 rounded-lg"
+                className="text-sm md:text-base px-4 py-2 mt-2 bg-cyan-700 rounded-lg"
                 type="email"
                 required
                 id="email"
@@ -89,7 +89,7 @@ function Signup() {
             <div className="mb-3 flex flex-col">
               <label htmlFor="password">Password</label>
               <input
-                className="px-4 py-2 mt-2 bg-cyan-700 rounded-lg"
+                className="text-sm md:text-base px-4 py-2 mt-2 bg-cyan-700 rounded-lg"
                 type="password"
                 required
                 id="password"
@@ -101,7 +101,7 @@ function Signup() {
             <div className="mb-7 flex flex-col">
               <label htmlFor="confirmPassword">Confirm Password</label>
               <input
-                className="px-4 py-2 mt-2 bg-cyan-700 rounded-lg"
+                className="text-sm md:text-base px-4 py-2 mt-2 bg-cyan-700 rounded-lg"
                 type="password"
                 required
                 id="confirmPassword"
@@ -118,7 +118,7 @@ function Signup() {
                 </div>
               )}
             </div>
-            <div className="mt-5">
+            <div className="mt-5 text-sm md:text-base">
               <span>
                 Already Have An Account{" "}
                 <Link to="/user/signin" className="text-yellow-400">

@@ -3,11 +3,11 @@ import Hanger from "./custom/hanger";
 
 function HistoryCard({ orderHistory }: { orderHistory: Order[] }) {
   return (
-    <div className="grid sm:grid-cols-2 gap-2 text-black">
+    <div className="grid sm:grid-cols-2 gap-2">
       {orderHistory?.map((order) => (
         <div
           key={order._id}
-          className="p-3 bg-white rounded-lg backdrop-blur-3xl shadow-lg"
+          className="p-3 border-2 border-gray-700 rounded-lg backdrop-blur-3xl shadow-lg"
         >
           <div className="flex justify-between items-center">
             <div>{order._id.substring(0, 6)}</div>
@@ -38,7 +38,7 @@ function HistoryCard({ orderHistory }: { orderHistory: Order[] }) {
             </div>
           </div>
           <div className="my-5">
-            <div>{order.createdAt.substring(0, 10)}</div>
+            <div><p>{order.createdAt.substring(0, 10)}</p></div>
             {order.orderItems.map((product) => (
               <span key={product._id}>
                 <span>{product.name}, </span>

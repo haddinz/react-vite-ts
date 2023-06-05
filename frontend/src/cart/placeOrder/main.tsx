@@ -97,8 +97,8 @@ function PlaceOrder() {
             <div className="border-2 my-5 border-cyan-900 p-5 rounded-lg">
               <h3 className="h3">Items In Cart</h3>
               {cart.cartItems.map((item) => (
-                <div key={item.name} className="grid grid-cols-3 gap-2">
-                  <div className="flex items-center col-span-1 ">
+                <div key={item.name} className="grid grid-cols-4 gap-5">
+                  <div className="flex items-center col-span-2 ">
                     <img
                       alt={item.name}
                       src={item.image}

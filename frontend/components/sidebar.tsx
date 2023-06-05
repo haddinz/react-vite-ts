@@ -2,16 +2,13 @@ import { useContext, useEffect, useState } from "react";
 import Icon from "./custom/icon";
 import { Store } from "../utils/store";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const { state, dispatch } = useContext(Store);
-  const {
-    userInfo,
-    mode,
-    cart,
-  } = state;
+  const { userInfo, mode, cart } = state;
   useEffect(() => {
     document.body.setAttribute("class", mode);
     localStorage.setItem("mode", mode);
@@ -20,16 +17,28 @@ function Sidebar() {
     dispatch({ type: "SWITCH_MODE" });
   };
 
+  const logoutHandler = () => {
+    dispatch({ type: "LOGOUT_AUTH" });
+    localStorage.removeItem("userInfo");
+    localStorage.removeItem("cartItems");
+    localStorage.removeItem("shippingAddress");
+    localStorage.removeItem("paymentMethod");
+    toast.success("Log Out Success", { autoClose: 1000 });
+    window.location.href = "/user/signin";
+  };
+
   return (
     <div className="z-50 text-right">
       <div className="flex items-center justify-end">
         <button className={`relative z-10 mr-7 ${isOpen && "text-white"}`}>
-          {cart.cartItems.length > 0 && (
-            <div className="h-5 w-5 flex justify-center items-center rounded-full bg-sky-600 absolute -top-3 -right-2 text-white text-xs">
-              {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
-            </div>
-          )}
-          <Icon.Cart />
+          <Link to="/cart/cartPage">
+            {cart.cartItems.length > 0 && (
+              <div className="h-5 w-5 flex justify-center items-center rounded-full bg-sky-600 absolute -top-3 -right-2 text-white text-xs">
+                {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+              </div>
+            )}
+            <Icon.Cart />
+          </Link>
         </button>
         <button onClick={darkmodeHandler} className="relative z-10 mr-7">
           {mode === "dark" ? <Icon.Sun /> : <Icon.Moon />}
@@ -87,14 +96,17 @@ function Sidebar() {
                     Admin Dashboard
                   </Link>
                 )}
-                <button className="py-3 px-5 bg-sky-900 hover:bg-sky-400 rounded">
+                <button
+                  className="py-3 px-5 bg-sky-900 hover:bg-sky-400 rounded"
+                  onClick={logoutHandler}
+                >
                   Log Out
                 </button>
               </div>
             ) : (
               <div className="flex flex-col space-y-3">
-                <Link to="/login">Login</Link>
-                <Link to="/signup">Signup</Link>
+                <Link to="/user/signin">Login</Link>
+                <Link to="/user/register">Signup</Link>
               </div>
             )}
           </div>

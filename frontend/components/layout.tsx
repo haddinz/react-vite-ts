@@ -24,7 +24,7 @@ function Layout({
 
       <div className="min-h-screen flex flex-col justify-between bg-gray-100 dark:bg-gray-900">
         <Header />
-        <section className="mt-20">{children}</section>
+        <section className="mt-28">{children}</section>
         <Footer />
       </div>
     </>

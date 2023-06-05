@@ -149,8 +149,11 @@ function GetOrderId() {
                 <div className="p-5 rounded-lg border-2 mb-5 border-sky-700">
                   <h3 className="h3">Item</h3>
                   {order?.orderItems.map((order) => (
-                    <div key={order._id} className="grid lg:grid-cols-3">
-                      <div className="flex items-center col-span-1 ">
+                    <div
+                      key={order._id}
+                      className="grid lg:grid-cols-4 border-2 border-sky-700 rounded-lg mb-3"
+                    >
+                      <div className="flex items-center col-span-2 mb-2">
                         <img
                           alt={order.name}
                           src={order.image}
@@ -159,7 +162,7 @@ function GetOrderId() {
                         <p className="text-sm">{order.name}</p>
                       </div>
 
-                      <div className="col-span-2 flex items-center justify-between p-2 ">
+                      <div className="col-span-2 flex items-center justify-between p-2">
                         <p className="text-sm">{order.quantity} Qty</p>
                         <p className="text-sm">{order.price} Pcs</p>
                         <p className="text-sm">
@@ -204,12 +207,17 @@ function GetOrderId() {
                           ></PayPalButtons>
                         </div>
                       ) : (
-                        <div>
+                        <div className="text-center">
                           <Button
                             condition="on"
                             text="Just For Stripe"
                             onClickHandler={testPayHandler}
                           />
+                          <ul className="text-red-500 font-semibold text-xs mt-5">
+                            <li>
+                              This payment method will be updated in the future
+                            </li>
+                          </ul>
                         </div>
                       )}
                       {loadingPay && <Loading.Spin />}
