@@ -47,7 +47,7 @@ app.get("*", (req: Request, res: Response) =>
   }
 );
 
-const PORT: number = parseInt((process.env.port || '4000') as string, 10)
+const PORT: number = parseInt((process.env.PORT || '4000') as string, 10)
 app.listen(PORT, () => {
   console.log(`server running at localhost ${PORT}`);
 });
