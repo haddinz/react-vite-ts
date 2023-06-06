@@ -130,5 +130,49 @@ const X = () => {
   );
 };
 
-const Icon = { Sun, Moon, Cart, Plus, Minus, Times, Hamburger, X };
+const Facebook = () => {
+  return (
+    <svg
+      enable-background="new 0 0 56.693 56.693"
+      id="Layer_1"
+      version="1.1"
+      viewBox="0 0 56.693 56.693"
+      className="w-9 h-9 p-2 rounded-full bg-white"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M40.43,21.739h-7.645v-5.014c0-1.883,1.248-2.322,2.127-2.322c0.877,0,5.395,0,5.395,0V6.125l-7.43-0.029  c-8.248,0-10.125,6.174-10.125,10.125v5.518h-4.77v8.53h4.77c0,10.947,0,24.137,0,24.137h10.033c0,0,0-13.32,0-24.137h6.77  L40.43,21.739z" />
+    </svg>
+  );
+};
+
+const Linkedin = () => {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-9 h-9 p-2 rounded-full bg-white"
+    >
+      <g>
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path
+          d="M6.94 5a2 2 0 1 1-4-.002 2 2 0 0 1 4 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.04-1.68z"
+          fill-rule="nonzero"
+        />
+      </g>
+    </svg>
+  );
+};
+
+const Icon = {
+  Sun,
+  Moon,
+  Cart,
+  Plus,
+  Minus,
+  Times,
+  Hamburger,
+  X,
+  Facebook,
+  Linkedin,
+};
 export default Icon;
