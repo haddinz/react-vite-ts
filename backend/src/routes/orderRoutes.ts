@@ -12,7 +12,7 @@ orderRoutes.get(
   asyncHandler(async (req: Request, res: Response) => {
     const orders = await OrderModel.find({ user: req.user._id });
     if (orders) {
-      res.send(orders);
+      res.json(orders);
     } else {
       res.status(401).json({ message: "You Not Order Yet" });
     }
