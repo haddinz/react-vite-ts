@@ -1,1 +1,27 @@
+Coba buat kayak gini bang
 
+{Folder RootPage}
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<RootPage />}>
+      <Route index={true} element={<Layout />} />
+      <Route path="/dashboard" element={<Dahsboard />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/login" element={<Login />} />
+    </Route>
+  )
+);
+
+
+{Folder Layout}
+import { Outlet } from "react-router-dom";
+
+function Layout() {
+  return (
+    <>
+      <Outlet />
+    </>
+  );
+}
+
+export default Layout

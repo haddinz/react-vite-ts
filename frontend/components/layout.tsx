@@ -20,6 +20,8 @@ function Layout({
         </title>
         <meta name="description" content={description ? description : 'Created by Routes.ID'}/>
         <meta name="author" content="Hajrul Ahmad Harudin" />
+        <meta property="Social: Linkendin" content="https://www.linkedin.com/in/hajrul-a-h-0bb5b5254/" />
+        <meta property="Social: Youtube please watch wkwkwkwk, canda" content="https://www.youtube.com/@rutes5872/videos"/>
       </Helmet>
 
       <div className="min-h-screen flex flex-col justify-between bg-gray-100 dark:bg-gray-900">

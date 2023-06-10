@@ -61,7 +61,7 @@ function ShippingPage() {
             <div className="mb-3 flex flex-col">
               <label htmlFor="name">Name</label>
               <input
-                className="px-4 py-2 mt-2 text-sm md:text-base bg-cyan-700 rounded-lg"
+                className="px-4 py-2 mt-2 focus:outline-none text-sm md:text-base bg-cyan-700 rounded-lg"
                 type="name"
                 autoFocus
                 required
@@ -75,7 +75,7 @@ function ShippingPage() {
             <div className="mb-3 flex flex-col">
               <label htmlFor="address">Address</label>
               <input
-                className="px-4 py-2 mt-2 text-sm md:text-base bg-cyan-700 rounded-lg"
+                className="px-4 py-2 mt-2 focus:outline-none text-sm md:text-base bg-cyan-700 rounded-lg"
                 type="address"
                 required
                 value={address}
@@ -88,7 +88,7 @@ function ShippingPage() {
             <div className="mb-3 flex flex-col">
               <label htmlFor="country">Country</label>
               <input
-                className="px-4 py-2 mt-2 text-sm md:text-base bg-cyan-700 rounded-lg"
+                className="px-4 py-2 mt-2 focus:outline-none text-sm md:text-base bg-cyan-700 rounded-lg"
                 type="country"
                 required
                 value={country}
@@ -101,7 +101,7 @@ function ShippingPage() {
             <div className="mb-3 flex flex-col">
               <label htmlFor="postalCode">Postal Code</label>
               <input
-                className="px-4 py-2 mt-2 text-sm md:text-base bg-cyan-700 rounded-lg"
+                className="px-4 py-2 mt-2 focus:outline-none text-sm md:text-base bg-cyan-700 rounded-lg"
                 type="number"
                 inputMode="numeric"
                 required
@@ -115,7 +115,7 @@ function ShippingPage() {
             <div className="mb-10 flex flex-col">
               <label htmlFor="city">City</label>
               <input
-                className="px-4 py-2 mt-2 text-sm md:text-base bg-cyan-700 rounded-lg"
+                className="px-4 py-2 mt-2 focus:outline-none text-sm md:text-base bg-cyan-700 rounded-lg"
                 type="city"
                 required
                 value={city}

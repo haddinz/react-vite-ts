@@ -22,12 +22,14 @@ import GetOrderId from "./order/id/main.tsx";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import OrderHistory from "./order/history/main.tsx";
 import Profile from "./user/profile/main.tsx";
+import Seacrh from "./product/search.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index={true} element={<ProductPage />} />
       <Route path="/product/slug/:slug" element={<GetProductDetailsSlug />} />
+      <Route path="/search" element={<Seacrh />} />
       <Route path="/user/signin" element={<Signin />} />
       <Route path="/user/register" element={<Signup />} />
       <Route path="/user/profile" element={<Profile />} />

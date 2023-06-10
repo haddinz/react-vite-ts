@@ -77,6 +77,12 @@ function Sidebar() {
                   Hello {userInfo.name}
                 </div>
                 <Link
+                  to="/product/search"
+                  className="cursor-pointer hover:text-sky-300 font-medium"
+                >
+                  Product
+                </Link>
+                <Link
                   to="/user/profile"
                   className="cursor-pointer hover:text-sky-300 font-medium"
                 >
@@ -105,6 +111,7 @@ function Sidebar() {
               </div>
             ) : (
               <div className="flex flex-col space-y-3">
+                <Link to="/product/search">Product</Link>
                 <Link to="/user/signin">Login</Link>
                 <Link to="/user/register">Signup</Link>
               </div>

@@ -46,7 +46,7 @@ function Payment() {
           <form onSubmit={submitPaymentHandler} className="w-3/4 md:w-[450px]">
             <div>
               <input
-                className="bg-emerald-600 h-4 w-4 mr-3"
+                className="bg-emerald-600 focus:outline-none h-4 w-4 mr-3"
                 type="radio"
                 value={paypalPayment}
                 id={paypalPayment}
@@ -57,7 +57,7 @@ function Payment() {
             </div>
             <div className="mt-5 mb-10">
               <input
-                className="bg-emerald-600 h-4 w-4 mr-3"
+                className="bg-emerald-600 focus:outline-none h-4 w-4 mr-3"
                 type="radio"
                 value={stripePayment}
                 id={stripePayment}

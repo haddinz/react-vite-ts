@@ -70,7 +70,7 @@ function HistoryTable({ orderHistory }: { orderHistory: Order[] }) {
         ))}
       </tbody>
     </table>
-  );
+  )
 }
 
 export default HistoryTable;

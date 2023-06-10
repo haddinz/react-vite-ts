@@ -68,7 +68,7 @@ function Signup() {
             <div className="mb-3 flex flex-col">
               <label htmlFor="name">Name</label>
               <input
-                className="px-4 py-2 mt-2 bg-cyan-700 rounded-lg"
+                className="px-4 py-2 mt-2 focus:outline-none bg-cyan-700 rounded-lg"
                 type="name"
                 value={name}
                 autoFocus
@@ -82,7 +82,7 @@ function Signup() {
             <div className="mb-3 flex flex-col">
               <label htmlFor="email">Email</label>
               <input
-                className="px-4 py-2 mt-2 bg-cyan-700 rounded-lg"
+                className="px-4 py-2 mt-2 focus:outline-none bg-cyan-700 rounded-lg"
                 type="email"
                 value={email}
                 required
@@ -95,7 +95,7 @@ function Signup() {
             <div className="mb-3 flex flex-col">
               <label htmlFor="password">Password</label>
               <input
-                className="px-4 py-2 mt-2 bg-cyan-700 rounded-lg"
+                className="px-4 py-2 mt-2 focus:outline-none bg-cyan-700 rounded-lg"
                 type="password"
                 required
                 id="password"
@@ -107,7 +107,7 @@ function Signup() {
             <div className="mb-7 flex flex-col">
               <label htmlFor="confirmPassword">Confirm Password</label>
               <input
-                className="px-4 py-2 mt-2 bg-cyan-700 rounded-lg"
+                className="px-4 py-2 mt-2 focus:outline-none bg-cyan-700 rounded-lg"
                 type="password"
                 required
                 id="confirmPassword"

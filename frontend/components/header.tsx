@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Sidebar from "./sidebar";
 import { Link } from "react-router-dom";
+import SearchBox from '../components/custom/searchBox'
 
 function Header() {
   const [dropdrown, setDropdown] = useState(false);
@@ -45,6 +46,7 @@ function Header() {
             <Link to="/" className="text-xl font-bold md:text-2xl">
               VITE.ID
             </Link>
+            <SearchBox />
           </div>
 
           <div className="sm:col-span-2 my-auto">
@@ -59,6 +61,9 @@ function Header() {
                   </div>
                 )}
                 <Icon.Cart />
+              </Link>
+              <Link to='/product/search' className="mr-5">
+                  Product
               </Link>
               <span className="mr-5">||</span>
               {userInfo ? (

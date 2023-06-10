@@ -35,3 +35,7 @@
 .dark{
   @apply text-gray-100 bg-gray-900 
 }
+
+.options {
+  @apply p-10 hover:bg-sky-500
+}

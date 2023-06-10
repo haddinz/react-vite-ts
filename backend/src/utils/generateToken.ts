@@ -11,7 +11,7 @@ export const generateToken = (user: User) => {
       isAdmin: user.isAdmin,
     },
     process.env.jwt_secret || "somethingsecret",
-    { expiresIn: "1d" }
+    { expiresIn: "7d" }
   );
 };
 

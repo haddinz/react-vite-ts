@@ -3,7 +3,7 @@ import Icon from "./custom/icon";
 
 function Footer() {
   return (
-    <div className="w-full bg-gray-900 text-gray-300 pt-10 pb-5">
+    <div className="w-full bg-gray-900 text-gray-300 pt-10 pb-5 mt-10">
       <div className="container">
         <div className="grid place-items-center">
           <h3 className="h3">VITE.ID</h3>
