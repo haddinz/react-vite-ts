@@ -41,20 +41,20 @@ function Header() {
     <div className="fixed w-full h-[80px] bg-gray-100 dark:bg-gray-900 z-10">
       <ToastContainer position="top-center" limit={1} />
       <div className="container dark:dark">
-        <div className="grid grid-cols-2 sm:grid-cols-5 h-full">
-          <div className="sm:col-span-3 flex items-center">
-            <Link to="/" className="text-xl font-bold md:text-2xl">
+        <div className="grid grid-cols-3 md:grid-cols-5 gap-5 h-full">
+          <div className="col-span-2 md:col-span-3 flex items-center">
+            <Link to="/" className="text-xl font-bold md:text-2xl mr-3">
               VITE.ID
             </Link>
             <SearchBox />
           </div>
 
-          <div className="sm:col-span-2 my-auto">
+          <div className="col-span-1 md:col-span-2 my-auto">
             <nav className="block md:hidden">
               <Sidebar />
             </nav>
             <nav className="w-full hidden md:flex items-center justify-end font-bold">
-              <Link to="/cart/cartPage" className="mr-5 relative">
+              <Link to="/cart/cartPage" className="md:mr-5 relative">
                 {cart.cartItems.length > 0 && (
                   <div className="h-5 w-5 flex justify-center items-center rounded-full bg-sky-600 absolute -top-3 -right-2 text-white text-xs">
                     {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
@@ -62,7 +62,7 @@ function Header() {
                 )}
                 <Icon.Cart />
               </Link>
-              <Link to='/product/search' className="mr-5">
+              <Link to='/search' className="mr-5">
                   Product
               </Link>
               <span className="mr-5">||</span>

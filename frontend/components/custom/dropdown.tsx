@@ -13,14 +13,14 @@ function Dropdown({
     <div className="relative mb-2">
       <button
         onClick={() => setIsOpen((isOpen) => !isOpen)}
-        className="bg-sky-300 dark:bg-sky-700 p-3 w-[300px] items-center flex justify-between rounded active:text-white duration-300 font-semibold mb-2"
+        className="bg-sky-300 dark:bg-sky-700 p-3 w-full items-center flex justify-between rounded active:text-white duration-300 font-semibold mb-2"
       >
         {title}
         {isOpen ? <Icon.Down /> : <Icon.Up />}
       </button>
 
       {isOpen && (
-        <div className="flex flex-col bg-gray-300 dark:bg-gray-700 p-3 w-[300px] rounded active:text-white duration-300 font-semibold">
+        <div className="flex flex-col bg-gray-300 dark:bg-gray-700 p-3 w-full rounded active:text-white duration-300 font-semibold">
           {children}
         </div>
       )}

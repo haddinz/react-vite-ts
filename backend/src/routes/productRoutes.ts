@@ -34,23 +34,26 @@ productRoutes.get(
     const rating = (req.query.rating || "") as string;
 
     const categoryFilter = category && category !== "all" ? { category } : {};
-    const priceFilter = price && price !== "all"
-      ? {
-        price: {
-          $gte: Number(price.split("-")[0]),
-          $lte: Number(price.split("-")[1]),
-        },
-      }
-      : {};
-    const queryFilter = searchQuery && searchQuery !== "all"
-      ? {
-        name: {
-          $regex: searchQuery,
-          $options: "i",
-        },
-      }
-      : {};
-    const ratingFilter = rating && rating !== "all" ? { rating: { $gte: Number(rating) } } : {};
+    const priceFilter =
+      price && price !== "all"
+        ? {
+            price: {
+              $gte: Number(price.split("-")[0]),
+              $lte: Number(price.split("-")[1]),
+            },
+          }
+        : {};
+    const queryFilter =
+      searchQuery && searchQuery !== "all"
+        ? {
+            $or: [
+              { name: { $regex: searchQuery, $options: "i" } },
+              { category: { $regex: searchQuery, $options: "i" } },
+            ],
+          }
+        : {};
+    const ratingFilter =
+      rating && rating !== "all" ? { rating: { $gte: Number(rating) } } : {};
 
     const countProduct = await ProductModel.countDocuments({
       ...categoryFilter,
@@ -69,10 +72,10 @@ productRoutes.get(
         order === "lowest"
           ? { price: 1 }
           : order === "highest"
-            ? { price: -1 }
-            : order === "toprated"
-              ? { rating: -1 }
-              : { _id: -1 }
+          ? { price: -1 }
+          : order === "toprated"
+          ? { rating: -1 }
+          : { _id: -1 }
       )
       .skip(PAGE_SIZE * (page - 1))
       .limit(PAGE_SIZE);

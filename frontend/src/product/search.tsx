@@ -50,6 +50,28 @@ const ratings = [
   },
 ];
 
+const sortOrder = [
+  {
+    name: "Newest Arrival",
+    value: "newest",
+  },
+
+  {
+    name: "Lowest price",
+    value: "lowest",
+  },
+
+  {
+    name: "Highest Price",
+    value: "highest",
+  },
+
+  {
+    name: "Reviews",
+    value: "toprated",
+  },
+];
+
 export default function Search() {
   const navigate = useNavigate();
   const { search } = useLocation();
@@ -80,12 +102,12 @@ export default function Search() {
 
   const getFilterUrl = (
     filter: {
-      category?: string
-      price?: string
-      rating?: string
-      order?: string
-      page?: number
-      query?: string
+      category?: string;
+      price?: string;
+      rating?: string;
+      order?: string;
+      page?: number;
+      query?: string;
     },
     skipPathName = false
   ) => {
@@ -102,7 +124,7 @@ export default function Search() {
 
   return (
     <Layout title="Search Page" description="Search Page Product">
-      <div className="container grid grid-cols-3 gap-2 md:gap-10">
+      <div className="container grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-10">
         <div className="col-span-1">
           <h3 className="font-semibold mb-5">Filter</h3>
 
@@ -156,7 +178,7 @@ export default function Search() {
           <MessageBox>{getError(error as ApiError)}</MessageBox>
         ) : (
           <div className="col-span-2">
-            <div className="grid grid-cols-2 gap-3 mb-3">
+            <div className="grid grid-cols-1 place-items-start md:place-items-stretch md:grid-cols-2 gap-3 mb-3">
               <div className="flex justify-center flex-col space-b-5">
                 <h3 className="font-semibold mb-2">
                   {data?.countProduct === 0
@@ -180,7 +202,7 @@ export default function Search() {
                     <div className="py-1 px-3 rounded bg-sky-300 dark:bg-sky-700 flex items-center justify-between">
                       {category}
                       <Link
-                        to={getFilterUrl({ category: "all"})}
+                        to={getFilterUrl({ category: "all" })}
                         className="ml-2"
                       >
                         <Icon.Times />
@@ -212,20 +234,22 @@ export default function Search() {
                 </div>
               </div>
 
-              <div className="">
-                <div className="flex justify-end items-center">
-                  <p className="mr-3">Sort By: </p>
+              <div className="w-full">
+                <div className="flex justify-start md:justify-end items-center">
+                  <p className="mr-1">Sort By: </p>
                   <select
                     className="py-1 px-5 rounded-lg border-2 border-sky-700 text-black"
                     value={order}
-                    onChange={(e) => {
-                      navigate(getFilterUrl({ order: e.target.value }));
-                    }}
+                    id={order}
+                    onChange={(e) =>
+                      navigate(getFilterUrl({ order: e.target.value }))
+                    }
                   >
-                    <option value="newest">Newest Arrival</option>
-                    <option value="lowest">Lowest price</option>
-                    <option value="highest">Highest Price</option>
-                    <option value="toprated">Reviews</option>
+                    {sortOrder.map((sortOrder, index) => (
+                      <option key={index} value={sortOrder.value}>
+                        {sortOrder.name}
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>
@@ -252,7 +276,7 @@ export default function Search() {
                   key={x + 1}
                   className="mx-1"
                   to={{
-                    pathname: "/product/search",
+                    pathname: "/search",
                     search: getFilterUrl({ page: x + 1 }, true),
                   }}
                 >

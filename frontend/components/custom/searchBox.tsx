@@ -18,7 +18,7 @@ export default function SearchBox() {
       curentPath.startsWith("/product/slug/") ? (
         <form
           onSubmit={submitHandler}
-          className="ml-5 flex p-2 rounded-lg items-center text-black border-2 border-sky-700 bg-white w-full md:w-4/6"
+          className="flex p-1 md:p-2 rounded-lg items-center text-black border-2 border-sky-700 bg-white w-full md:w-4/6"
         >
           <Icon.Search />
           <input

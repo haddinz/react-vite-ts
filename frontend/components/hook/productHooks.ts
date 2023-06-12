@@ -38,7 +38,7 @@ export const GetSearchProduct = ({
   order: string;
 }) =>
   useQuery({
-    queryKey: ["product", category, price],
+    queryKey: ["product", category, price, query, rating, page, order],
     queryFn: async () =>
       (
         await APIClient.get<{

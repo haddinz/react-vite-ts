@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import Button from "../../components/custom/button";
 import Icon from "../../components/custom/icon";
 import { CartItems } from "../../types/Cart";
 import { Store } from "../../utils/store";
-import { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Layout from "../../components/layout";
@@ -17,10 +18,25 @@ function Cart() {
   const {
     cart: { cartItems },
   } = state;
+
+  const [inputQuantity, setInputQuantity] = useState<{ [key: string]: number }>(
+    {}
+  );
+
+  const inputHandler = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    itemID: string
+  ) => {
+    const value = parseInt(e.target.value);
+    setInputQuantity((prevInputQuantity) => ({
+      ...prevInputQuantity,
+      [itemID]: value,
+    }));
+  };
   const updateHandler = (item: CartItems, quantity: number) => {
     if (item.countInStock < quantity) {
-      toast.warning("Product Count In Stock", { autoClose: 1000});
-      return
+      toast.warning("Product Count In Stock", { autoClose: 1000 });
+      return;
     }
     dispatch({ type: "ADD_CART_ITEMS", payload: { ...item, quantity } });
   };
@@ -61,7 +77,7 @@ function Cart() {
                     >
                       <div className="flex">
                         <div className="mb-5 relative">
-                          <Link to={`/product/${item.slug}`}>
+                          <Link to={`/product/slug/${item.slug}`}>
                             <img
                               alt={item.name}
                               src={item.image}
@@ -87,19 +103,39 @@ function Cart() {
                         </div>
                       </div>
 
-                      <div className="flex items-center justify-center mb-10">
+                      <div className="mb-10 flex items-center justify-center">
                         <button
-                          className="mr-10"
                           onClick={() => updateHandler(item, item.quantity + 1)}
                           disabled={item.countInStock === item.quantity}
                         >
                           <Icon.Plus />
                         </button>
-                        <p className="mr-10 font-semibold">{item.quantity}</p>
+                        <form
+                          key={item._id}
+                          onSubmit={() => {
+                            updateHandler(
+                              item,
+                              inputQuantity[item._id] || item.quantity
+                            );
+                          }}
+                        >
+                          <input
+                            type="number"
+                            name={item.name}
+                            id={item._id}
+                            value={
+                              inputQuantity[item._id] !== undefined
+                                ? inputQuantity[item._id]
+                                : item.quantity
+                            }
+                            onChange={(e) => inputHandler(e, item._id)}
+                            className="w-16 bg-transparent text-center focus:outline-none focus:outline-none[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                            disabled={item.countInStock === item.quantity }
+                          />
+                        </form>
                         <button
                           onClick={() => updateHandler(item, item.quantity - 1)}
                           disabled={item.quantity === 1}
-                          className="mr-20"
                         >
                           <Icon.Minus />
                         </button>

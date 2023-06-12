@@ -30,7 +30,7 @@ function Sidebar() {
   return (
     <div className="z-50 text-right">
       <div className="flex items-center justify-end">
-        <button className={`relative z-10 mr-7 ${isOpen && "text-white"}`}>
+        <button className={`relative z-10 mr-4 md:mr-7 ${isOpen && "text-white"}`}>
           <Link to="/cart/cartPage">
             {cart.cartItems.length > 0 && (
               <div className="h-5 w-5 flex justify-center items-center rounded-full bg-sky-600 absolute -top-3 -right-2 text-white text-xs">
@@ -40,7 +40,7 @@ function Sidebar() {
             <Icon.Cart />
           </Link>
         </button>
-        <button onClick={darkmodeHandler} className="relative z-10 mr-7">
+        <button onClick={darkmodeHandler} className="relative z-10 mr-4 md:mr-7">
           {mode === "dark" ? <Icon.Sun /> : <Icon.Moon />}
         </button>
         {isOpen ? (
@@ -77,7 +77,7 @@ function Sidebar() {
                   Hello {userInfo.name}
                 </div>
                 <Link
-                  to="/product/search"
+                  to="/search"
                   className="cursor-pointer hover:text-sky-300 font-medium"
                 >
                   Product
