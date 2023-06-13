@@ -16,7 +16,7 @@ function Footer() {
             <Link to={'https://www.facebook.com/hadin.hadin.313371'} target="_blank">
               <Icon.Facebook />
             </Link>
-            <Link to={'https://www.linkedin.com/in/hajrul-a-h-0bb5b5254/'} target="_blank">
+            <Link to={'https://www.linkedin.com/in/hajrul-ahmad-harudin/'} target="_blank">
               <Icon.Linkedin />
             </Link>
           </div>
